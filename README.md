@@ -49,7 +49,3 @@ This project is licensed under the [MIT License](LICENSE).
 ## Support
 
 For support, email [marconte@thatmuch.fr] or create an issue on the GitHub repository.
-
----
-
-**Note**: This file assumes a GitHub repository hosting. Please modify the links and steps according to your actual repository details and plugin setup.
