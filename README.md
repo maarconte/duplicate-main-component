@@ -1,6 +1,6 @@
 # Duplicate Main Component - Figma Plugin
 
-Duplicate Main Component is a Figma plugin designed to enhance productivity by allowing users to easily clone and reposition main components in their design files.
+Duplicate Main Component is a Figma plugin designed to enhance productivity by allowing users to easily clone and **reposition** main components in their design files.
 
 ## Installation
 
@@ -15,7 +15,10 @@ To install this plugin locally, follow these steps:
 
 1. **Clone the Repository:**
    First, clone this repository to your local machine using:
-``` git clone https://github.com/maarconte/duplicate-main-component ```
+```sh
+git clone https://github.com/maarconte/duplicate-main-component
+```
+  Or download the repository as a zip file and extract it.
 
 2. **Open Figma:**
 Open the Figma application or go to [Figma Web](https://www.figma.com/).
@@ -38,6 +41,8 @@ To use the plugin, open any Figma file, navigate to `Menu > Plugins > Duplicate 
 - Run the plugin through `Menu > Plugins > Duplicate Main Component`.
 - The plugin will clone and position the component as per the configured settings.
 
+## Shortcut
+How to Make a Figma Plugin Keyboard Shortcut on Mac : [Shortcut](https://figment.so/blog/how-to-make-figma-plugin-keyboard-shortcut)
 ## Contributing
 
 Contributions to improve Duplicate Main Component are welcome. Feel free to fork the repository and submit pull requests.
