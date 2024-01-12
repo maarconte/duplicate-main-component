@@ -24,7 +24,7 @@ git clone https://github.com/maarconte/duplicate-main-component
 Open the Figma application or go to [Figma Web](https://www.figma.com/).
 
 3. **Access Plugins:**
-In Figma, navigate to `Menu > Plugins > Development > New Plugin...`.
+In Figma, navigate to `Menu > Plugins > Development >`.
 
 4. **Import the Plugin:**
 In the dialog that appears, select `Link existing plugin` and then navigate to the cloned repository's folder. Choose the `manifest.json` file.
