@@ -1,17 +1,33 @@
-// Clones the first selected element on the current Figma page.
-// Assumes there is at least one element selected.
-const clone = figma.currentPage.selection[0].clone();
+// Define the type for a Figma node
+type FigmaNode = SceneNode & { height: number; y: number; };
 
-// Updates the current selection to be the newly cloned element.
-figma.currentPage.selection = [clone];
+const { currentPage } = figma;
+const { selection } = currentPage;
 
-// Scrolls the Figma viewport to the cloned element and zooms in for a better view.
-figma.viewport.scrollAndZoomIntoView([clone]);
+// Function to clone and reposition a single node
+function cloneAndReposition(node: FigmaNode): FigmaNode {
+  const clone = node.clone() as FigmaNode;
+  clone.y += node.height + 100;
+  return clone;
+}
 
-// Moves the cloned element down by its own height plus an additional 100 units.
-// This avoids overlapping with the original element and provides some space between them.
-clone.y += clone.height + 100;
+if (selection.length === 0) {
+  figma.closePlugin("No elements selected. Please select one or more elements to clone.");
+} else {
+  const clones: FigmaNode[] = [];
 
-// Closes the plugin. This is typically the last line in a Figma plugin script.
-// It signals to Figma that the plugin has completed its task.
-figma.closePlugin();
+  for (const node of selection) {
+    // Check if the node is a component or a component set (variant)
+    if (node.type === 'COMPONENT' || node.type === 'COMPONENT_SET') {
+      clones.push(cloneAndReposition(node as FigmaNode));
+    }
+  }
+
+  if (clones.length === 0) {
+    figma.closePlugin("Invalid selection. Only components or component sets (variants) can be cloned.");
+  } else {
+    currentPage.selection = clones;
+    figma.viewport.scrollAndZoomIntoView(clones);
+    figma.closePlugin('Elements cloned successfully.');
+  }
+}
